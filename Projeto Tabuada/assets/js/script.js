@@ -1,31 +1,30 @@
-let email = 'joao@hcode.com.br'
+function calculaTabuada(){
 
-console.log(`O Seu email é ${email}`)
+    let tabuada = document.querySelector('#tabuada tbody')
+    let valorA = parseInt(document.querySelector("#valorA").value)
 
+    tabuada.innerHTML = ''
 
-document.getElementById('btn-submit').addEventListener('click', e =>{
-    console.log('O botao foi clicado')
-})
+    for(let valorB = 0; valorB <= 10; valorB++){
 
-document.getElementById('form-login').addEventListener('mouseenter', e => {
-    console.log('O mouse esta sobre o formulario')
-})
+        let resultado = valorA * valorB
 
+        let template = `
+            <td>${valorA}</td>  
+            <td>x</td>        
+            <td>${valorB}</td>  
+            <td>=</td>  
+            <td>${resultado}</td>`
 
-document.querySelector('#form-login').addEventListener('mouseleave' , e =>{
-    console.log('O mouse saiu do elemento')
-})
+        let tr = document.createElement('tr')
+        tr.innerHTML = template
 
-document.querySelector('#form-login').addEventListener('submit', e =>{
-    e.preventDefault()
-    let email =  document.querySelector('#email').value
-    let password =  document.querySelector('#password').value
+        tabuada.append(tr)
 
-    console.log(email, password)
-
-    let json = {
-        email
     }
 
-    console.log(json)
-})
+}
+
+calculaTabuada()
+
+document.querySelector("#valorA").addEventListener('change', calculaTabuada)

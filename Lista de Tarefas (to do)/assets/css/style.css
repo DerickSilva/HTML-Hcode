@@ -106,3 +106,16 @@ footer{
     text-align: center;
 }
 
+#new-task{
+    width: 100%;
+    padding: 10px;
+}
+
+.todo button{
+    width: initial;
+    color: #fff;
+    background-color: red;
+    float: right;
+    min-width: 30px;
+}
+
